@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`paper-dialog-step`
+A paper dialog with a title and two button: left and right. It is useful for a tutorial or a guide.
+
+@demo demo/index.html
+-->
+
+<dom-module id="paper-dialog-step">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'paper-dialog-step',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'paper-dialog-step',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
