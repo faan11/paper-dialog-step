@@ -1,6 +1,6 @@
 # \<paper-dialog-step\>
 
-A paper dialog with a title and two button: left and right. It is useful for a tutorial or a guide.
+
 
 ## Install the Polymer-CLI
 

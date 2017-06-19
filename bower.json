@@ -1,14 +1,16 @@
 {
   "name": "paper-dialog-step",
-  "description": "A paper dialog with a title and two button: left and right. It is useful for a tutorial or a guide.",
   "main": "paper-dialog-step.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.9.0"
+    "polymer": "Polymer/polymer",
+    "paper-dialog": "PolymerElements/paper-dialog#^2.0.0",
+    "paper-icon-button": "PolymerElements/paper-icon-button#^2.0.0",
+    "paper-button": "PolymerElements/paper-button#^2.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
-    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+    "iron-component-page": "PolymerElements/iron-component-page",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers",
+    "web-component-tester": "Polymer/web-component-tester",
+    "webcomponentsjs": "webcomponents/webcomponentsjs"
   }
 }
