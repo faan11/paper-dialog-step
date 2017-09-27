@@ -120,17 +120,22 @@
     <paper-dialog id="papDialog" class="centerfullscreen" exit-animation="fade-out-animation" with-backdrop="{{withBackdrop}}">
 
       <div class="container flex-horizontal title_container">
-        <div class="button">
-          <paper-icon-button icon="{{iconLeft}}" on-click="beforeClick"></paper-icon-button>
-        </div>
+        <template is="dom-if" if="{{!noIconLeft}}" restamp="true">
+
+          <div class="button">
+            <paper-icon-button icon="{{iconLeft}}" on-click="beforeClick"></paper-icon-button>
+          </div>
+        </template>
 
         <div class="flexchild">
           <h2 id="titleContent"></h2>
         </div>
 
-        <div class="button">
-          <paper-icon-button icon="{{iconRight}}" on-click="afterClick"></paper-icon-button>
-        </div>
+        <template is="dom-if" if="{{!noIconRight}}" restamp="true">
+          <div class="button">
+            <paper-icon-button icon="{{iconRight}}" on-click="afterClick"></paper-icon-button>
+          </div>
+        </template>
 
       </div>
       <slot></slot>
@@ -159,6 +164,16 @@
           type: String,
           notify: true,
           value: "chevron-right"
+        },
+        noIconLeft: {
+          type: Boolean,
+          notify: true,
+          value:false
+        },
+        noIconRight: {
+          type: Boolean,
+          notify: true,
+          value:false
         },
       },
       _changeTitle:function(newValue,oldValue){
