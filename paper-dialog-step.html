@@ -117,7 +117,7 @@
       }
     </style>
 
-    <paper-dialog id="papDialog" class="centerfullscreen" exit-animation="fade-out-animation" with-backdrop="{{withBackdrop}}">
+    <paper-dialog  opened="{{opened}}" id="papDialog" class="centerfullscreen" exit-animation="fade-out-animation" with-backdrop="{{withBackdrop}}">
 
       <div class="container flex-horizontal title_container">
         <template is="dom-if" if="{{!noIconLeft}}" restamp="true">
@@ -149,6 +149,11 @@
       is: 'paper-dialog-step',
 
       properties: {
+        opened:{
+          type: Boolean,
+          notify: true,
+          value:false
+        },
         title: {
           type: String,
           notify: true,
