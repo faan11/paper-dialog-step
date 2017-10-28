@@ -2,6 +2,8 @@
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-badge/paper-badge.html">
+
 
 <!--
 `paper-dialog-step`
@@ -121,6 +123,13 @@
         margin-top: 10px;
         margin-bottom: 10px;
       }
+      paper-badge{
+        @apply --paper-dialog-step-badge-mixin;
+      }
+
+      #right{
+        @apply --paper-dialog-step-right-icon-mixin;
+      }
     </style>
 
     <paper-dialog  opened="{{opened}}" id="papDialog" class="centerfullscreen" exit-animation="fade-out-animation" with-backdrop="{{withBackdrop}}">
@@ -139,7 +148,11 @@
 
         <template is="dom-if" if="{{!noIconRight}}" restamp="true">
           <div class="button">
-            <paper-icon-button icon="{{iconRight}}" on-click="afterClick"></paper-icon-button>
+            <paper-icon-button id="right" disabled="{{iconRightDisabled}}" icon="{{iconRight}}" on-click="afterClick"></paper-icon-button>
+            <template is="dom-if" if="{{withBadge}}" restamp="true">
+              <paper-badge for="right" label="{{labelBadge}}"> </paper-badge>
+            </template>
+
           </div>
         </template>
 
@@ -160,11 +173,21 @@
           notify: true,
           value:false
         },
+        withBadge:{
+          type: Boolean,
+          notify: true,
+          value:false
+        },
         title: {
           type: String,
           notify: true,
           value:"Title",
           observer: "_changeTitle"
+        },
+        iconRightDisabled:{
+          type: Boolean,
+          notify: true,
+          value:false
         },
         iconLeft: {
           type: String,
@@ -175,6 +198,11 @@
           type: String,
           notify: true,
           value: "chevron-right"
+        },
+        labelBadge: {
+          type: String,
+          notify: true,
+          value: ""
         },
         noIconLeft: {
           type: Boolean,
