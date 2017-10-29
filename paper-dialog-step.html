@@ -130,6 +130,12 @@
       #right{
         @apply --paper-dialog-step-right-icon-mixin;
       }
+      .hidden{
+        visibility: hidden;
+      }
+      .visible{
+        visibility: visible;
+      }
     </style>
 
     <paper-dialog  opened="{{opened}}" id="papDialog" class="centerfullscreen" exit-animation="fade-out-animation" with-backdrop="{{withBackdrop}}">
@@ -146,15 +152,13 @@
           <h2 id="titleContent"></h2>
         </div>
 
-        <template is="dom-if" if="{{!noIconRight}}" restamp="true">
-          <div class="button">
+          <div class$="button {{_isRightEnabled(noIconRight)}}">
             <paper-icon-button id="right" disabled="{{iconRightDisabled}}" icon="{{iconRight}}" on-click="afterClick"></paper-icon-button>
             <template is="dom-if" if="{{withBadge}}" restamp="true">
               <paper-badge for="right" label="{{labelBadge}}"> </paper-badge>
             </template>
 
           </div>
-        </template>
 
       </div>
       <slot></slot>
@@ -214,6 +218,9 @@
           notify: true,
           value:false
         },
+      },
+      _isRightEnabled:function(noIconRight){
+        return noIconRight?"hidden":"visible";
       },
       _changeTitle:function(newValue,oldValue){
         this.$.titleContent.innerText = newValue;
