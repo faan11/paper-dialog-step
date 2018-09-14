@@ -225,11 +225,9 @@
         this.$.titleContent.innerText = newValue;
       },
       beforeClick: function(newValue, oldValue) {
-        this.$.papDialog.close();
         this.fire("before");
       },
       afterClick: function(newValue, oldValue) {
-        this.$.papDialog.close();
         this.fire("after");
       },
       open: function() {
