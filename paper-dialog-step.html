@@ -138,7 +138,7 @@
       }
     </style>
 
-    <paper-dialog  opened="{{opened}}" id="papDialog" class="centerfullscreen"  with-backdrop="{{withBackdrop}}">
+    <paper-dialog  modal="{{modal}}" opened="{{opened}}" id="papDialog" class="centerfullscreen"  with-backdrop="{{withBackdrop}}">
 
       <div class="container flex-horizontal title_container">
         <template is="dom-if" if="{{!noIconLeft}}" restamp="true">
@@ -173,6 +173,10 @@
 
       properties: {
         opened:{
+          type: Boolean,
+          notify: true
+        },
+        modal:{
           type: Boolean,
           notify: true
         },
